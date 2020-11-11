@@ -1,0 +1,20 @@
+---
+layout: default
+---
+
+<h1>{{page.title}}</h1>
+{{content}}
+
+{% if page.related_diys %}
+<h2>Related DIYs</h2>
+<ul>
+    {% for diy in page.related_diys %}
+    <li class="list-group-item">
+      <a href="{{ diy }}">
+        <span class="badge bg-primary rounded-pill material-icons">explore</span>
+        {{ diy }}
+      </a>
+    </li>
+  {% endfor %}
+</ul>
+{% endif %}

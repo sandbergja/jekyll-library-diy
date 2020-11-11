@@ -1,0 +1,27 @@
+.speech-bubble-right:after {
+	content: '';
+	position: absolute;
+	right: 0;
+	top: 50%;
+	width: 0;
+	height: 0;
+	border: 7px solid transparent;
+	border-left-color: #00aabb;
+	border-right: 0;
+	margin-top: -7px;
+	margin-right: -7px;
+}
+
+.speech-bubble-left:after {
+    content: '';
+	position: absolute;
+	left: 0;
+	top: 50%;
+	width: 0;
+	height: 0;
+	border: 7px solid transparent;
+	border-right-color: #00aabb;
+	border-left: 0;
+	margin-top: -7px;
+	margin-left: -7px;
+}

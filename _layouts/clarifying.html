@@ -1,0 +1,29 @@
+---
+layout: default
+---
+
+<div class="card text-right speech-bubble-right bg-light mt-3">
+      <div class="card-body">
+        <div class="card-text">
+          {{ page.patron_question }}
+        </div>
+      </div>
+    </div>
+    <div class="card text-left bg-info speech-bubble-left">
+      <div class="card-body">
+        <div class="card-text">
+          {{ page.clarifying_question }}
+        </div>
+      </div>
+    </div>
+    <ul class="list-group text-right mt-3">
+      {% for response in page.possible_responses %}
+        <li class="list-group-item speech-bubble-right bg-primary">
+          <a href="{{ response.first[0] }}">
+            <span class="badge rounded-pill material-icons">done_outline</span>
+            <span class="text-white">{{ response.first[1] }}</span>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+{{ content }}
