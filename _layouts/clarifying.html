@@ -9,7 +9,7 @@ layout: default
         </div>
       </div>
     </div>
-    <div class="card text-left bg-info speech-bubble-left">
+    <div class="card text-left bg-info speech-bubble-left mt-2">
       <div class="card-body">
         <div class="card-text">
           {{ page.clarifying_question }}
@@ -18,7 +18,7 @@ layout: default
     </div>
     <ul class="list-group text-right mt-5">
       {% for response in page.possible_responses %}
-        <li class="list-group-item speech-bubble-right bg-primary">
+        <li class="list-group-item speech-bubble-right bg-primary mt-1">
           <a href="{{ response.first[0] }}">
             <span class="badge rounded-pill material-icons">done_outline</span>
             <span class="text-white">{{ response.first[1] }}</span>
