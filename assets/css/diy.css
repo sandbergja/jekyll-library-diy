@@ -25,3 +25,11 @@
 	margin-top: -7px;
 	margin-left: -7px;
 }
+
+/* make sure the footer doesn't rise up into the content area on short pages */
+body {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+	justify-content: space-between
+}
