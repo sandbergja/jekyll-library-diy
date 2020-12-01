@@ -1,0 +1,13 @@
+title: Jekyll Library DIY Documentation
+email: your-email@example.com
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+
+# Build settings
+markdown: kramdown
+plugins:
+  - jekyll-feed
+remote_theme: sandbergja/jekyll-library-diy@main
+plugins:
+  - jekyll-remote-theme
+
+baseurl: '/library-diy-jekyll'
