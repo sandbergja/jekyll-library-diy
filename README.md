@@ -1,18 +1,33 @@
 # jekyll-library-diy
 
-Welcome to your new Jekyll theme! In this directory, you'll find the files you need to be able to package up your theme into a gem. Put your layouts in `_layouts`, your includes in `_includes`, your sass files in `_sass` and any other assets in `assets`.
+This Jekyll theme allows you to present your library's tutorials
+and FAQs in small, easy-to-digest tidbits.  These tidbits are
+organized in a reference-interview style, where patrons can
+narrow down their questions and get exactly the information that
+they need to be successful in their research.
 
-To experiment with this code, add some sample content and run `bundle exec jekyll serve` – this directory is setup just like a Jekyll site!
-
-TODO: Delete this and the text above, and describe your gem
-
+[The Library DIY project](https://meredith.wolfwater.com/wordpress/2013/07/02/library-diy-unmediated-point-of-need-support/),
+was created by Meredith Farkas, Amy Hofer, Tom Boone, and others
+at the Portland State University Library. You can find the
+[original Drupal implementation](https://github.com/pdxlibrary/Library-DIY)
+on Github.
 
 ## Installation
+
+### Easiest version
+
+Clone this repository and start adding content.
+
+### Install locally version
+
+Create a
+[Github Pages site with Jekyll](https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/creating-a-github-pages-site-with-jekyll)
+
 
 Add this line to your Jekyll site's `Gemfile`:
 
 ```ruby
-gem "jekyll-library-diy"
+gem 'jekyll-library-diy', github: 'sandbergja/oer_faq_test', branch: 'main'
 ```
 
 And add this line to your Jekyll site's `_config.yml`:
@@ -31,11 +46,12 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here. Describe your available layouts, includes, sass and/or assets.
+There are three available layouts:
 
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/hello. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+1) `index`, to be used for the main page
+2) `clarifying`, which help to narrow down the user's initial question
+3) `page`, which is intended for the content tidbit that answers
+the patron's question.
 
 ## Development
 
