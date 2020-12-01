@@ -12,37 +12,47 @@ at the Portland State University Library. You can find the
 [original Drupal implementation](https://github.com/pdxlibrary/Library-DIY)
 on Github.
 
-## Installation
+## Setting up a Jekyll Library DIY site on Github Pages
 
 ### Easiest version
 
-Clone this repository and start adding content.
+1. Clone this repository (or any repository that
+uses this jekyll theme and has a license compatible with
+what you want to do) and start adding content.
+2. Go to your repository settings and make sure that Github Pages
+is set to the correct branch and directory.
 
-### Install locally version
+### Cleaner version
 
-Create a
-[Github Pages site with Jekyll](https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/creating-a-github-pages-site-with-jekyll)
-
-
-Add this line to your Jekyll site's `Gemfile`:
-
-```ruby
+1. Create a new Github repository.
+2. Add a file called `Gemfile` to your repository,
+with the following contents:
+```
+source "https://rubygems.org"
+gem "github-pages", group: :jekyll_plugins
 gem 'jekyll-library-diy', github: 'sandbergja/jekyll-library-diy', branch: 'main'
 ```
-
-And add this line to your Jekyll site's `_config.yml`:
-
-```yaml
-theme: jekyll-library-diy
+3. Add a file called `_config.yml`, with the following
+contents, substituting the appropriate values for those
+in brackets:
 ```
+title: [Title of your Library DIY site]
+email: [Your email adress]
+url: [the base hostname & protocol for your site, e.g. http://username.github.io]
 
-And then execute:
+markdown: kramdown
+plugins:
+  - jekyll-feed
+remote_theme: sandbergja/jekyll-library-diy@main
+plugins:
+  - jekyll-remote-theme
 
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install jekyll-library-diy
+baseurl: [if this is a project github pages instance, this will be /PROJECT_REPO_NAME]
+```
+4. To develop your work on your local computer, run the
+`bundle` command, and then `bundle exec jekyll serve`
+to view your site-in-progress.
+5. Start adding content to your Jekyll Library DIY.
 
 ## Usage
 
