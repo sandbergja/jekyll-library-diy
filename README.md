@@ -41,8 +41,6 @@ email: [Your email adress]
 url: [the base hostname & protocol for your site, e.g. http://username.github.io]
 
 markdown: kramdown
-plugins:
-  - jekyll-feed
 remote_theme: sandbergja/jekyll-library-diy@main
 plugins:
   - jekyll-remote-theme
