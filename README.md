@@ -27,7 +27,7 @@ Create a
 Add this line to your Jekyll site's `Gemfile`:
 
 ```ruby
-gem 'jekyll-library-diy', github: 'sandbergja/oer_faq_test', branch: 'main'
+gem 'jekyll-library-diy', github: 'sandbergja/jekyll-library-diy', branch: 'main'
 ```
 
 And add this line to your Jekyll site's `_config.yml`:
@@ -48,7 +48,7 @@ Or install it yourself as:
 
 There are three available layouts:
 
-1) `index`, to be used for the main page
+1) `home`, to be used for the main page
 2) `clarifying`, which help to narrow down the user's initial question
 3) `page`, which is intended for the content tidbit that answers
 the patron's question.
