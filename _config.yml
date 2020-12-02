@@ -1,0 +1,6 @@
+exclude:
+  - assets/css/bootstrap
+sass:
+  load_paths:
+    - assets/css/bootstrap/scss
+    - assets/css/scss
