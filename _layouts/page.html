@@ -6,15 +6,18 @@ layout: default
 {{content}}
 
 {% if page.related_diys %}
-<h2>Related DIYs</h2>
-<ul>
+  <h2>Related DIYs</h2>
+  <ul>
     {% for diy in page.related_diys %}
-    <li class="list-group-item bg-primary mt-1">
-      <a href="{{ diy | relative_url }}" class="text-white">
-        <span class="badge rounded-pill material-icons">explore</span>
-        {{ diy }}
-      </a>
-    </li>
-  {% endfor %}
-</ul>
+      {% for related_page in site.pages %}
+        {% if related_page.url contains diy %}
+          <li class="list-group-item bg-primary mt-1">
+            <a href="{{ diy | relative_url }}" class="text-white"><span
+              class="badge rounded-pill material-icons">explore</span>
+            {{ related_page["title"] }}</a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+  </ul>
 {% endif %}
