@@ -10,7 +10,7 @@ layout: default
 <ul>
     {% for diy in page.related_diys %}
     <li class="list-group-item bg-primary mt-1">
-      <a href="{{ diy }}" class="text-white">
+      <a href="{{ diy | relative_url }}" class="text-white">
         <span class="badge rounded-pill material-icons">explore</span>
         {{ diy }}
       </a>

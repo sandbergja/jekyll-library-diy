@@ -8,7 +8,7 @@ layout: default
         <li class="list-group-item bg-primary mt-1 speech-bubble-right">
           <a href="{{ question.first[0] }}">
             <span class="badge rounded-pill material-icons">help_outline</span>
-            <span class="text-white">{{ question.first[1] }}</span>
+            <span class="text-white">{{ question.first[1] | relative_url }}</span>
           </a>
         </li>
       {% endfor %}
