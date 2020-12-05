@@ -12,6 +12,10 @@
 	margin-right: -7px;
 }
 
+.speech-bubble-right a {
+	display: block;
+}
+
 .speech-bubble-left:after {
     content: '';
 	position: absolute;
