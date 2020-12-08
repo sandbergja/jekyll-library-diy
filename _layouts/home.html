@@ -3,12 +3,12 @@ layout: default
 ---
 
     <h1 class="mt-4">{{ page.title }}</h1>
-    <ul class="list-group mt-3">
+    <ul class="mt-3 list-unstyled">
       {% for question in page.patron_questions %}
-        <li class="list-group-item bg-primary mt-1 speech-bubble-right">
-          <a href="{{ question.first[0] | relative_url }}">
-            <span class="badge rounded-pill material-icons">help_outline</span>
-            <span class="text-white">{{ question.first[1] }}</span>
+        <li class="mt-1">
+          <a href="{{ question.first[0] | relative_url }}" class="btn btn-primary">
+            <span class="material-icons">help_outline</span>
+            {{ question.first[1] }}
           </a>
         </li>
       {% endfor %}

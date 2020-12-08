@@ -2,28 +2,33 @@
 layout: default
 ---
 
-<div class="card text-right speech-bubble-right bg-light mt-3">
-      <div class="card-body">
-        <div class="card-text">
-          {{ page.patron_question }}
-        </div>
-      </div>
-    </div>
-    <div class="card text-left bg-info speech-bubble-left mt-2">
-      <div class="card-body">
-        <div class="card-text">
-          {{ page.clarifying_question }}
-        </div>
-      </div>
-    </div>
-    <ul class="list-group text-right mt-5">
+
+
+<ol class="breadcrumb mt-2">
+  <li class="breadcrumb-item active" aria-current="page">
+    <a href="#" onclick="history.back();"><span class="material-icons">backspace</span>
+      Back</a>
+  </li>
+</ol>
+
+
+<h1 class="mt-3">{{ page.patron_question }}</h1>
+
+<div class="card mt-5">
+  <div class="card-body">
+    <p class="card-title lead">{{ page.clarifying_question }}</p>
+    <ul class="mt-5 list-unstyled">
       {% for response in page.possible_responses %}
-        <li class="list-group-item speech-bubble-right bg-primary mt-1">
-          <a href="{{ response.first[0] | relative_url }}">
-            <span class="badge rounded-pill material-icons">done_outline</span>
-            <span class="text-white">{{ response.first[1] }}</span>
-          </a>
-        </li>
+      <li class="mt-1">
+        <a href="{{ response.first[0] | relative_url }}" class="btn btn-primary">
+          <span class="material-icons">done_outline</span>
+          {{ response.first[1] }}
+        </a>
+      </li>
       {% endfor %}
     </ul>
+  </div>
+</div>
+
+
 {{ content }}
