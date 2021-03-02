@@ -70,6 +70,19 @@ Your theme is setup just like a normal Jekyll site! To test your theme, run `bun
 When your theme is released, only the files in `_layouts`, `_includes`, `_sass` and `assets` tracked with Git will be bundled.
 To add a custom directory to your theme-gem, please edit the regexp in `jekyll-library-diy.gemspec` accordingly.
 
+### Upgrading bootstrap
+
+This project pulls in Bootstrap using [git subtree](https://www.atlassian.com/git/tutorials/git-subtree).
+This allows us to harness the power of SASS variables with bootstrap without needing to use, say, npm
+(which would mean that github pages wouldn't build your FAQ for you) or git submodules (which are just a pain).
+
+To update the version of bootstrap included:
+
+* Make sure you don't have any changes you haven't committed in the jekyll-library-diy repo
+* Find the tag of the bootstrap release you'd like to use.  In this example, we'll use the tag v5.0.0-beta2
+* `git remote add -f bootstrap_upstream https://github.com/twbs/bootstrap`
+* `git subtree pull --prefix _sass/bootstrap bootstrap_upstream v5.0.0-beta2 --squash`
+
 ## License
 
 The theme is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
