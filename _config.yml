@@ -10,4 +10,4 @@ remote_theme: sandbergja/jekyll-library-diy@main
 plugins:
   - jekyll-remote-theme
 
-baseurl: '/library-diy-jekyll'
+baseurl: '/jekyll-library-diy'
