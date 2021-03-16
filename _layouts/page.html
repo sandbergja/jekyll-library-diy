@@ -10,7 +10,7 @@ layout: default
 {% if page.related_diys %}
   <div class="card mt-5">
     <div class="card-body">
-      <h2 class="card-title">Related DIYs</h2>
+      {% include related_diys.html %}
       <ul class="mt-5 list-unstyled">
         {% for diy in page.related_diys %}
           {% for related_page in site.pages %}
