@@ -54,6 +54,8 @@ to view your site-in-progress.
 
 ## Usage
 
+Once you have it set up, you can use [this documentation](https://sandbergja.github.io/jekyll-library-diy/) to learn how to add content and modify your site.
+
 There are three available layouts:
 
 1) `home`, to be used for the main page
