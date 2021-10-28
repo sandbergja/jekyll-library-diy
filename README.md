@@ -12,6 +12,11 @@ at the Portland State University Library. You can find the
 [original Drupal implementation](https://github.com/pdxlibrary/Library-DIY)
 on Github.
 
+## Examples
+
+* [Open Oregon Educational Resources](https://faq.openoregon.org/) is using jekyll-library-diy in production.
+* [This demo documentation site](https://sandbergja.github.io/jekyll-library-diy/) also uses jekyll-library-diy.
+
 ## Setting up a Jekyll Library DIY site on Github Pages
 
 ### Easiest version
