@@ -1,11 +1,16 @@
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v5.0.0-beta2): base-component.js
+ * Bootstrap (v5.1.3): base-component.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
 
 import Data from './dom/data'
+import {
+  executeAfterTransition,
+  getElement
+} from './util/index'
+import EventHandler from './dom/event-handler'
 
 /**
  * ------------------------------------------------------------------------
@@ -13,31 +18,57 @@ import Data from './dom/data'
  * ------------------------------------------------------------------------
  */
 
-const VERSION = '5.0.0-beta2'
+const VERSION = '5.1.3'
 
 class BaseComponent {
   constructor(element) {
+    element = getElement(element)
+
     if (!element) {
       return
     }
 
     this._element = element
-    Data.setData(element, this.constructor.DATA_KEY, this)
+    Data.set(this._element, this.constructor.DATA_KEY, this)
   }
 
   dispose() {
-    Data.removeData(this._element, this.constructor.DATA_KEY)
-    this._element = null
+    Data.remove(this._element, this.constructor.DATA_KEY)
+    EventHandler.off(this._element, this.constructor.EVENT_KEY)
+
+    Object.getOwnPropertyNames(this).forEach(propertyName => {
+      this[propertyName] = null
+    })
+  }
+
+  _queueCallback(callback, element, isAnimated = true) {
+    executeAfterTransition(callback, element, isAnimated)
   }
 
   /** Static */
 
   static getInstance(element) {
-    return Data.getData(element, this.DATA_KEY)
+    return Data.get(getElement(element), this.DATA_KEY)
+  }
+
+  static getOrCreateInstance(element, config = {}) {
+    return this.getInstance(element) || new this(element, typeof config === 'object' ? config : null)
   }
 
   static get VERSION() {
     return VERSION
+  }
+
+  static get NAME() {
+    throw new Error('You have to implement the static method "NAME", for each component!')
+  }
+
+  static get DATA_KEY() {
+    return `bs.${this.NAME}`
+  }
+
+  static get EVENT_KEY() {
+    return `.${this.DATA_KEY}`
   }
 }
 

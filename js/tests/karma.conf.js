@@ -33,7 +33,12 @@ const reporters = ['dots']
 const detectBrowsers = {
   usePhantomJS: false,
   postDetection(availableBrowser) {
-    if (ENV.CI === true || availableBrowser.includes('Chrome')) {
+    // On CI just use Chrome
+    if (ENV.CI === true) {
+      return ['ChromeHeadless']
+    }
+
+    if (availableBrowser.includes('Chrome')) {
       return DEBUG ? ['Chrome'] : ['ChromeHeadless']
     }
 
@@ -46,13 +51,6 @@ const detectBrowsers = {
     }
 
     throw new Error('Please install Chrome, Chromium or Firefox')
-  }
-}
-
-const customLaunchers = {
-  FirefoxHeadless: {
-    base: 'Firefox',
-    flags: ['-headless']
   }
 }
 
@@ -79,7 +77,8 @@ const conf = {
   rollupPreprocessor: {
     plugins: [
       replace({
-        'process.env.NODE_ENV': '"dev"'
+        'process.env.NODE_ENV': '"dev"',
+        preventAssignment: true
       }),
       istanbul({
         exclude: [
@@ -99,7 +98,8 @@ const conf = {
     output: {
       format: 'iife',
       name: 'bootstrapTest',
-      sourcemap: 'inline'
+      sourcemap: 'inline',
+      generatedCode: 'es2015'
     }
   }
 }
@@ -109,7 +109,7 @@ if (BROWSERSTACK) {
   conf.browserStack = {
     username: ENV.BROWSER_STACK_USERNAME,
     accessKey: ENV.BROWSER_STACK_ACCESS_KEY,
-    build: `bootstrap-${new Date().toISOString()}`,
+    build: `bootstrap-${ENV.GITHUB_SHA ? ENV.GITHUB_SHA.slice(0, 7) + '-' : ''}${new Date().toISOString()}`,
     project: 'Bootstrap',
     retryLimit: 2
   }
@@ -124,7 +124,6 @@ if (BROWSERSTACK) {
     'karma-firefox-launcher',
     'karma-detect-browsers'
   )
-  conf.customLaunchers = customLaunchers
   conf.detectBrowsers = detectBrowsers
   conf.files = [
     'node_modules/jquery/dist/jquery.slim.min.js',
@@ -142,7 +141,6 @@ if (BROWSERSTACK) {
     'karma-coverage-istanbul-reporter'
   )
   reporters.push('coverage-istanbul')
-  conf.customLaunchers = customLaunchers
   conf.detectBrowsers = detectBrowsers
   conf.coverageIstanbulReporter = {
     dir: path.resolve(__dirname, '../coverage/'),
