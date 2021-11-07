@@ -3,7 +3,7 @@ layout: page
 title: Adding a clarifying question page
 ---
 
-These pages are all about the metadata in the front matter!
+This type of page doesn't have much content of its own.  The most important part of these pages are all the metadata in the front matter!
 
 1. Create a new file.
 2. Add the following front matter:
