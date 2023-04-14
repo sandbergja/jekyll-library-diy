@@ -13,7 +13,7 @@ layout: default
       {% for response in page.possible_responses %}
       <li class="mt-2">
         <a href="{{ response.first[0] | relative_url }}" class="btn btn-primary">
-          <span class="material-icons">done_outline</span>
+          <span class="material-icons" aria-hidden="true">done_outline</span>
           {{ response.first[1] }}
         </a>
       </li>

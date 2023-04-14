@@ -16,7 +16,7 @@ layout: default
           {% for related_page in site.pages %}
             {% if related_page.url contains diy %}
               <li class="mt-2">
-                <a href="{{ diy | relative_url }}" class="btn btn-primary"><span class="material-icons">explore</span>
+                <a href="{{ diy | relative_url }}" class="btn btn-primary"><span class="material-icons" aria-hidden="true">explore</span>
                   {{ related_page["title"] }}</a>
               </li>
             {% endif %}

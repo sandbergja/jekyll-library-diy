@@ -8,7 +8,7 @@ layout: default
       {% for question in page.patron_questions %}
         <li class="mt-2">
           <a href="{{ question.first[0] | relative_url }}" class="btn btn-primary">
-            <span class="material-icons">help_outline</span>
+            <span class="material-icons" aria-hidden="true">help_outline</span>
             {{ question.first[1] }}
           </a>
         </li>
